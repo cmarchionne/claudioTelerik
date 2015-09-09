@@ -1,4 +1,69 @@
 {
   "type": "kendo-ui-mobile",
-  "isNew": true
+  "views": [
+    {
+      "type": "view",
+      "components": [
+        {
+          "type": "authentication",
+          "name": "homeModel",
+          "dataProvider": "billPayBackend",
+          "emailLabel": "Email",
+          "passwordLabel": "Password",
+          "signinLabel": "Sign In",
+          "signinRedirect": "dataListView",
+          "enableRegistration": true,
+          "gotoRegisterLabel": "Register",
+          "registerEmailLabel": "Email",
+          "registerPasswordLabel": "Password",
+          "registerNameLabel": "Name",
+          "registerLabel": "Register",
+          "registerRedirect": "home",
+          "gotoSigninLabel": "Sign In"
+        }
+      ],
+      "name": "home",
+      "title": "Login",
+      "addToNavigation": true,
+      "icon": "home"
+    },
+    {
+      "type": "view",
+      "components": [
+        {
+          "type": "list",
+          "name": "dataListViewModel",
+          "dataProvider": "billPayBackend",
+          "collection": "dbo_Bills",
+          "headerField": "Title",
+          "subHeaderField": "Description",
+          "masterDetails": true,
+          "detailHeaderField": "Title",
+          "detailSubHeaderField": "Description",
+          "detailDescriptionField": "Amount",
+          "pullToRefresh": true,
+          "endlessScroll": false
+        }
+      ],
+      "name": "dataListView",
+      "title": "Data List",
+      "addToNavigation": true,
+      "icon": "organize"
+    }
+  ],
+  "dataProviders": [
+    {
+      "type": "dataProvider",
+      "everliveUrl": "//platform.telerik.com/bs-api/v1/",
+      "name": "billPayBackend",
+      "title": "BillPay / BillPay Backend",
+      "source": "everlive",
+      "everliveKey": "nr5TBozhdulaq9Vt",
+      "offlineStorage": true
+    }
+  ],
+  "name": "kendoUiMobileApp",
+  "navigation": "drawer",
+  "view": "home",
+  "skin": "flat"
 }
